@@ -41,7 +41,6 @@ namespace DesktopAppVer2
             this.tbDataWindow = new System.Windows.Forms.TextBox();
             this.lblVers = new System.Windows.Forms.Label();
             this.InputPanel = new System.Windows.Forms.Panel();
-            this.btnSend = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnRep = new System.Windows.Forms.Button();
             this.lblRepDistRatio = new System.Windows.Forms.Label();
@@ -54,6 +53,7 @@ namespace DesktopAppVer2
             this.label5 = new System.Windows.Forms.Label();
             this.labelInc = new System.Windows.Forms.Label();
             this.tbDistRatio = new System.Windows.Forms.TextBox();
+            this.btnSend = new System.Windows.Forms.Button();
             this.lblDistRatio = new System.Windows.Forms.Label();
             this.tbMax = new System.Windows.Forms.TextBox();
             this.lblMax = new System.Windows.Forms.Label();
@@ -197,18 +197,6 @@ namespace DesktopAppVer2
             this.InputPanel.Size = new System.Drawing.Size(774, 551);
             this.InputPanel.TabIndex = 2;
             // 
-            // btnSend
-            // 
-            this.btnSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSend.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnSend.Location = new System.Drawing.Point(333, 448);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(118, 45);
-            this.btnSend.TabIndex = 0;
-            this.btnSend.Text = "SendToCraft";
-            this.btnSend.UseVisualStyleBackColor = false;
-            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
-            // 
             // splitContainer1
             // 
             this.splitContainer1.Cursor = System.Windows.Forms.Cursors.VSplit;
@@ -251,11 +239,11 @@ namespace DesktopAppVer2
             // btnRep
             // 
             this.btnRep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRep.Location = new System.Drawing.Point(251, 470);
+            this.btnRep.Location = new System.Drawing.Point(188, 493);
             this.btnRep.Name = "btnRep";
-            this.btnRep.Size = new System.Drawing.Size(52, 23);
+            this.btnRep.Size = new System.Drawing.Size(115, 45);
             this.btnRep.TabIndex = 21;
-            this.btnRep.Text = "Report";
+            this.btnRep.Text = "ReportFromCraft";
             this.btnRep.UseVisualStyleBackColor = true;
             this.btnRep.Click += new System.EventHandler(this.btnRep_Click);
             // 
@@ -357,6 +345,18 @@ namespace DesktopAppVer2
             this.tbDistRatio.Size = new System.Drawing.Size(100, 23);
             this.tbDistRatio.TabIndex = 9;
             this.tbDistRatio.Tag = "CRAFT";
+            // 
+            // btnSend
+            // 
+            this.btnSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSend.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSend.Location = new System.Drawing.Point(333, 493);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(118, 45);
+            this.btnSend.TabIndex = 0;
+            this.btnSend.Text = "SendToCraft";
+            this.btnSend.UseVisualStyleBackColor = false;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // lblDistRatio
             // 

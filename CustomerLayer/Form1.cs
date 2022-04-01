@@ -51,7 +51,7 @@ namespace DesktopAppVer2
             delayCommandTimer.Start();
             Version version = Assembly.GetEntryAssembly().GetName().Version;
             this.Text = "TERMINAL - Serial Data Terminal v" + version;
-            lblVers.Text += "0.5";
+            lblVers.Text += "1.0";
         }
 
         private void ReceiveDataHandler(string data)
@@ -277,7 +277,7 @@ namespace DesktopAppVer2
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-
+            Application.Restart();
         }
     }
 }
