@@ -45,7 +45,22 @@ namespace DesktopAppVer2
             this.btnReset = new System.Windows.Forms.Button();
             this.btnSend = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnRep = new System.Windows.Forms.Button();
+            this.lblRepDistRatio = new System.Windows.Forms.Label();
+            this.lblRepMax = new System.Windows.Forms.Label();
+            this.lblRepAccel = new System.Windows.Forms.Label();
+            this.lblRepSpeed = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.labelInc = new System.Windows.Forms.Label();
+            this.tbDistRatio = new System.Windows.Forms.TextBox();
+            this.lblDistRatio = new System.Windows.Forms.Label();
+            this.tbMax = new System.Windows.Forms.TextBox();
+            this.lblMax = new System.Windows.Forms.Label();
+            this.tbAccel = new System.Windows.Forms.TextBox();
+            this.lblAccel = new System.Windows.Forms.Label();
             this.tbSpeed = new System.Windows.Forms.TextBox();
             this.lblSPEED = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -205,6 +220,7 @@ namespace DesktopAppVer2
             this.btnReset.TabIndex = 1;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnSend
             // 
@@ -227,17 +243,123 @@ namespace DesktopAppVer2
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnRep);
+            this.splitContainer1.Panel1.Controls.Add(this.lblRepDistRatio);
+            this.splitContainer1.Panel1.Controls.Add(this.lblRepMax);
+            this.splitContainer1.Panel1.Controls.Add(this.lblRepAccel);
+            this.splitContainer1.Panel1.Controls.Add(this.lblRepSpeed);
+            this.splitContainer1.Panel1.Controls.Add(this.label2);
+            this.splitContainer1.Panel1.Controls.Add(this.label3);
+            this.splitContainer1.Panel1.Controls.Add(this.label4);
+            this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.labelInc);
             this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.tbDistRatio);
+            this.splitContainer1.Panel2.Controls.Add(this.lblDistRatio);
+            this.splitContainer1.Panel2.Controls.Add(this.tbMax);
+            this.splitContainer1.Panel2.Controls.Add(this.lblMax);
+            this.splitContainer1.Panel2.Controls.Add(this.tbAccel);
+            this.splitContainer1.Panel2.Controls.Add(this.lblAccel);
             this.splitContainer1.Panel2.Controls.Add(this.tbSpeed);
             this.splitContainer1.Panel2.Controls.Add(this.lblSPEED);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Size = new System.Drawing.Size(764, 541);
             this.splitContainer1.SplitterDistance = 306;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // btnRep
+            // 
+            this.btnRep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRep.Location = new System.Drawing.Point(251, 470);
+            this.btnRep.Name = "btnRep";
+            this.btnRep.Size = new System.Drawing.Size(52, 23);
+            this.btnRep.TabIndex = 21;
+            this.btnRep.Text = "Report";
+            this.btnRep.UseVisualStyleBackColor = true;
+            this.btnRep.Click += new System.EventHandler(this.btnRep_Click);
+            // 
+            // lblRepDistRatio
+            // 
+            this.lblRepDistRatio.AutoSize = true;
+            this.lblRepDistRatio.Location = new System.Drawing.Point(164, 142);
+            this.lblRepDistRatio.Name = "lblRepDistRatio";
+            this.lblRepDistRatio.Size = new System.Drawing.Size(92, 15);
+            this.lblRepDistRatio.TabIndex = 20;
+            this.lblRepDistRatio.Tag = "CRAFT";
+            this.lblRepDistRatio.Text = "DISTANCERATIO";
+            // 
+            // lblRepMax
+            // 
+            this.lblRepMax.AutoSize = true;
+            this.lblRepMax.Location = new System.Drawing.Point(178, 111);
+            this.lblRepMax.Name = "lblRepMax";
+            this.lblRepMax.Size = new System.Drawing.Size(66, 15);
+            this.lblRepMax.TabIndex = 19;
+            this.lblRepMax.Tag = "CRAFT";
+            this.lblRepMax.Text = "MAXSPEED";
+            // 
+            // lblRepAccel
+            // 
+            this.lblRepAccel.AutoSize = true;
+            this.lblRepAccel.Location = new System.Drawing.Point(185, 77);
+            this.lblRepAccel.Name = "lblRepAccel";
+            this.lblRepAccel.Size = new System.Drawing.Size(43, 15);
+            this.lblRepAccel.TabIndex = 18;
+            this.lblRepAccel.Tag = "CRAFT";
+            this.lblRepAccel.Text = "ACCEL";
+            // 
+            // lblRepSpeed
+            // 
+            this.lblRepSpeed.AutoSize = true;
+            this.lblRepSpeed.Location = new System.Drawing.Point(188, 42);
+            this.lblRepSpeed.Name = "lblRepSpeed";
+            this.lblRepSpeed.Size = new System.Drawing.Size(40, 15);
+            this.lblRepSpeed.TabIndex = 17;
+            this.lblRepSpeed.Tag = "CRAFT";
+            this.lblRepSpeed.Text = "SPEED";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(2, 142);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 15);
+            this.label2.TabIndex = 16;
+            this.label2.Tag = "CRAFT";
+            this.label2.Text = "DISTANCERATIO";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 111);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 15);
+            this.label3.TabIndex = 14;
+            this.label3.Tag = "CRAFT";
+            this.label3.Text = "MAXSPEED";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(25, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 15);
+            this.label4.TabIndex = 12;
+            this.label4.Tag = "CRAFT";
+            this.label4.Text = "ACCEL";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(28, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 15);
+            this.label5.TabIndex = 10;
+            this.label5.Tag = "CRAFT";
+            this.label5.Text = "SPEED";
             // 
             // labelInc
             // 
@@ -250,9 +372,63 @@ namespace DesktopAppVer2
             this.labelInc.TabIndex = 0;
             this.labelInc.Text = "Incoming";
             // 
+            // tbDistRatio
+            // 
+            this.tbDistRatio.Location = new System.Drawing.Point(110, 142);
+            this.tbDistRatio.Name = "tbDistRatio";
+            this.tbDistRatio.Size = new System.Drawing.Size(100, 23);
+            this.tbDistRatio.TabIndex = 9;
+            this.tbDistRatio.Tag = "CRAFT";
+            // 
+            // lblDistRatio
+            // 
+            this.lblDistRatio.AutoSize = true;
+            this.lblDistRatio.Location = new System.Drawing.Point(3, 145);
+            this.lblDistRatio.Name = "lblDistRatio";
+            this.lblDistRatio.Size = new System.Drawing.Size(92, 15);
+            this.lblDistRatio.TabIndex = 8;
+            this.lblDistRatio.Tag = "CRAFT";
+            this.lblDistRatio.Text = "DISTANCERATIO";
+            // 
+            // tbMax
+            // 
+            this.tbMax.Location = new System.Drawing.Point(110, 111);
+            this.tbMax.Name = "tbMax";
+            this.tbMax.Size = new System.Drawing.Size(100, 23);
+            this.tbMax.TabIndex = 7;
+            this.tbMax.Tag = "CRAFT";
+            // 
+            // lblMax
+            // 
+            this.lblMax.AutoSize = true;
+            this.lblMax.Location = new System.Drawing.Point(19, 114);
+            this.lblMax.Name = "lblMax";
+            this.lblMax.Size = new System.Drawing.Size(66, 15);
+            this.lblMax.TabIndex = 6;
+            this.lblMax.Tag = "CRAFT";
+            this.lblMax.Text = "MAXSPEED";
+            // 
+            // tbAccel
+            // 
+            this.tbAccel.Location = new System.Drawing.Point(110, 77);
+            this.tbAccel.Name = "tbAccel";
+            this.tbAccel.Size = new System.Drawing.Size(100, 23);
+            this.tbAccel.TabIndex = 5;
+            this.tbAccel.Tag = "CRAFT";
+            // 
+            // lblAccel
+            // 
+            this.lblAccel.AutoSize = true;
+            this.lblAccel.Location = new System.Drawing.Point(26, 80);
+            this.lblAccel.Name = "lblAccel";
+            this.lblAccel.Size = new System.Drawing.Size(43, 15);
+            this.lblAccel.TabIndex = 4;
+            this.lblAccel.Tag = "CRAFT";
+            this.lblAccel.Text = "ACCEL";
+            // 
             // tbSpeed
             // 
-            this.tbSpeed.Location = new System.Drawing.Point(64, 42);
+            this.tbSpeed.Location = new System.Drawing.Point(110, 42);
             this.tbSpeed.Name = "tbSpeed";
             this.tbSpeed.Size = new System.Drawing.Size(100, 23);
             this.tbSpeed.TabIndex = 3;
@@ -261,7 +437,7 @@ namespace DesktopAppVer2
             // lblSPEED
             // 
             this.lblSPEED.AutoSize = true;
-            this.lblSPEED.Location = new System.Drawing.Point(19, 45);
+            this.lblSPEED.Location = new System.Drawing.Point(29, 45);
             this.lblSPEED.Name = "lblSPEED";
             this.lblSPEED.Size = new System.Drawing.Size(40, 15);
             this.lblSPEED.TabIndex = 2;
@@ -328,6 +504,21 @@ namespace DesktopAppVer2
         private System.Windows.Forms.TextBox tbBaudRate;
         private System.Windows.Forms.TextBox tbSpeed;
         private System.Windows.Forms.Label lblSPEED;
+        private System.Windows.Forms.TextBox tbDistRatio;
+        private System.Windows.Forms.Label lblDistRatio;
+        private System.Windows.Forms.TextBox tbMax;
+        private System.Windows.Forms.Label lblMax;
+        private System.Windows.Forms.TextBox tbAccel;
+        private System.Windows.Forms.Label lblAccel;
+        private System.Windows.Forms.Label lblRepDistRatio;
+        private System.Windows.Forms.Label lblRepMax;
+        private System.Windows.Forms.Label lblRepAccel;
+        private System.Windows.Forms.Label lblRepSpeed;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnRep;
     }
 }
 

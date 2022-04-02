@@ -21,7 +21,9 @@ namespace DesktopAppVer2
         private SerialComPort serialPort;
         private Timer receivedDataTimer;
         private Timer replayLogTimer;
-        private StringCollection receivedData = new StringCollection(); //MutexVariable!
+        private Timer delayCommandTimer; //for timing animations.
+        private StringCollection receivedData = new StringCollection(); //MutexVariable! SEND AND RECEIVE BUFFER
+        private StringCollection toSendData = new StringCollection();
         private bool dataReady = false; //Flag!
         private bool dataReading = false; //Mutex for received data!
         private StreamReader file;
@@ -42,6 +44,11 @@ namespace DesktopAppVer2
             replayLogTimer.Interval = 1000;   // 1000 ms
             replayLogTimer.Tick += new EventHandler(ReplayLogTimerTick);
             replayLogTimer.Start();
+            delayCommandTimer = new Timer();
+            delayCommandTimer.Tick += new EventHandler(delayCommandTimerTick);
+            delayCommandTimer.Interval = 500;
+           
+            delayCommandTimer.Start();
             Version version = Assembly.GetEntryAssembly().GetName().Version;
             this.Text = "TERMINAL - Serial Data Terminal v" + version;
             lblVers.Text += "0.5";
@@ -60,6 +67,17 @@ namespace DesktopAppVer2
             }
         }
 
+
+
+        private void delayCommandTimerTick(object sender,EventArgs e)//buffer to delay sending data, layz programming cuase i don wan figure out why it wont take messages at full 9600 buad.
+        {
+            if (toSendData.Count > 0)
+            {
+                fctSendMessage(toSendData[toSendData.Count - 1]);
+                toSendData.RemoveAt(toSendData.Count - 1);
+            }
+        }
+
         //dataready should always be checked before modifying the variable
         private void ReceivedDataTimerTick(object sender, EventArgs e)
         {
@@ -70,10 +88,44 @@ namespace DesktopAppVer2
                 {
                     
                     UpdateDataWindow(receivedData[iter]);
+                    CheckDataReturn(receivedData[iter]);
+
                 }
                 receivedData = new StringCollection();
                 dataReading = false;
                 dataReady = false;
+            }
+        }
+
+        private void CheckDataReturn(string message)
+        {
+            string[] words = message.Split(" ");
+            if (words.Length >= 3)
+            {
+                if (words[0] == "!p")
+                {
+                    {
+                        switch (words[1])
+                        {
+                            case "GETSPEED":
+                                lblRepSpeed.Text = words[2];
+                                break;
+                            case "GETACCEL":
+                                lblRepAccel.Text = words[2];
+                                break;
+                            case "GETMAXSPEED":
+                                lblRepMax.Text = words[2];
+                                break;
+                            case "GETDISTANCERATIO":
+                                lblRepDistRatio.Text = words[2];
+                                break;
+                            default:
+                                Debug.Print("Error, repost with no command...");
+                                break;
+                        }
+                    }
+                }
+                else Debug.Print("No Repost found...");
             }
         }
 
@@ -208,8 +260,24 @@ namespace DesktopAppVer2
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            fctSendMessage("MOTOR SET" + lblSPEED.Text + " " + tbSpeed.Text);
+            toSendData.Add("MOTOR SET" + lblSPEED.Text + " " + tbSpeed.Text);
+            toSendData.Add("MOTOR SET" + lblAccel.Text + " " + tbAccel.Text);
+            toSendData.Add("MOTOR SET" + lblMax.Text + " " + tbMax.Text);
+            toSendData.Add("MOTOR SET" + lblDistRatio.Text + " " + tbDistRatio.Text);
         }
 
+        private void btnRep_Click(object sender, EventArgs e)
+        {
+            fctSendMessage("MOTOR GET" + lblSPEED.Text);
+            fctSendMessage("MOTOR GET" + lblAccel.Text);
+            fctSendMessage("MOTOR GET" + lblMax.Text);
+            fctSendMessage("MOTOR GET" + lblDistRatio.Text);
+
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
