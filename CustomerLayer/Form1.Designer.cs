@@ -41,8 +41,6 @@ namespace DesktopAppVer2
             this.tbDataWindow = new System.Windows.Forms.TextBox();
             this.lblVers = new System.Windows.Forms.Label();
             this.InputPanel = new System.Windows.Forms.Panel();
-            this.ButtonArea = new System.Windows.Forms.Panel();
-            this.btnReset = new System.Windows.Forms.Button();
             this.btnSend = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnRep = new System.Windows.Forms.Button();
@@ -66,7 +64,6 @@ namespace DesktopAppVer2
             this.label1 = new System.Windows.Forms.Label();
             this.StreamPanel.SuspendLayout();
             this.InputPanel.SuspendLayout();
-            this.ButtonArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -119,7 +116,7 @@ namespace DesktopAppVer2
             this.tbMessageToSend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.tbMessageToSend.Location = new System.Drawing.Point(100, 10);
             this.tbMessageToSend.Name = "tbMessageToSend";
-            this.tbMessageToSend.Size = new System.Drawing.Size(499, 23);
+            this.tbMessageToSend.Size = new System.Drawing.Size(497, 23);
             this.tbMessageToSend.TabIndex = 6;
             // 
             // tbComPort
@@ -192,7 +189,6 @@ namespace DesktopAppVer2
             // 
             // InputPanel
             // 
-            this.InputPanel.Controls.Add(this.ButtonArea);
             this.InputPanel.Controls.Add(this.splitContainer1);
             this.InputPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InputPanel.Location = new System.Drawing.Point(5, 5);
@@ -201,32 +197,11 @@ namespace DesktopAppVer2
             this.InputPanel.Size = new System.Drawing.Size(774, 551);
             this.InputPanel.TabIndex = 2;
             // 
-            // ButtonArea
-            // 
-            this.ButtonArea.Controls.Add(this.btnReset);
-            this.ButtonArea.Controls.Add(this.btnSend);
-            this.ButtonArea.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ButtonArea.Location = new System.Drawing.Point(5, 501);
-            this.ButtonArea.Name = "ButtonArea";
-            this.ButtonArea.Size = new System.Drawing.Size(764, 45);
-            this.ButtonArea.TabIndex = 2;
-            // 
-            // btnReset
-            // 
-            this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReset.Location = new System.Drawing.Point(647, 0);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(118, 45);
-            this.btnReset.TabIndex = 1;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
             // btnSend
             // 
             this.btnSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSend.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnSend.Location = new System.Drawing.Point(0, 0);
+            this.btnSend.Location = new System.Drawing.Point(333, 448);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(118, 45);
             this.btnSend.TabIndex = 0;
@@ -243,6 +218,7 @@ namespace DesktopAppVer2
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.splitContainer1.Panel1.Controls.Add(this.btnRep);
             this.splitContainer1.Panel1.Controls.Add(this.lblRepDistRatio);
             this.splitContainer1.Panel1.Controls.Add(this.lblRepMax);
@@ -257,7 +233,9 @@ namespace DesktopAppVer2
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.splitContainer1.Panel2.Controls.Add(this.tbDistRatio);
+            this.splitContainer1.Panel2.Controls.Add(this.btnSend);
             this.splitContainer1.Panel2.Controls.Add(this.lblDistRatio);
             this.splitContainer1.Panel2.Controls.Add(this.tbMax);
             this.splitContainer1.Panel2.Controls.Add(this.lblMax);
@@ -471,7 +449,6 @@ namespace DesktopAppVer2
             this.StreamPanel.ResumeLayout(false);
             this.StreamPanel.PerformLayout();
             this.InputPanel.ResumeLayout(false);
-            this.ButtonArea.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
